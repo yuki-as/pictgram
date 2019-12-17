@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root 'pages#index'
   
   resources :users
-  resources :topics
+  resources :topics do
+    resources :comments
+  end
   
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
